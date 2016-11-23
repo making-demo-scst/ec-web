@@ -1,0 +1,9 @@
+applications:
+- name: ec-web
+  buildpack: java_buildpack
+  memory: 512m
+  path: target/ec-web-0.0.1-SNAPSHOT.jar
+  services:
+  - rabbit-binder # cf create-service cloudamqp lemur rabbit-binder
+  env:
+    customers.uri: https://customer-svc.cfapps.io
